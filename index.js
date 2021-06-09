@@ -43,12 +43,12 @@ client.connect(err => {
     })
    
   })
-//   app.get('/showReview',(req,res)=>{
-//    ReviewCollection.find()
-//     .toArray((error,doc)=>{
-//       res.send(doc)
-//     })
-//       })
+  app.get('/showReview',(req,res)=>{
+   ReviewCollection.find()
+    .toArray((error,doc)=>{
+      res.send(doc)
+    })
+      })
 
   app.delete('/deleteOrder/:id',(req,res)=>{
 
@@ -63,20 +63,20 @@ client.connect(err => {
       console.log(result)
     })
   })
-//   app.get("/showOrder",(req,res)=>{
-//       OrderCollection.find()
-//       .toArray((error,doc)=>{
-//         res.send(doc)
-//       })
-//      })
+  app.get("/showOrder",(req,res)=>{
+      OrderCollection.find()
+      .toArray((error,doc)=>{
+        res.send(doc)
+      })
+     })
 
 
-//   app.get('/showservices',(req,res)=>{
-// serviceCollection.find()
-// .toArray((error,doc)=>{
-//   res.send(doc)
-// })
-//   })
+  app.get('/showservices',(req,res)=>{
+serviceCollection.find()
+.toArray((error,doc)=>{
+  res.send(doc)
+})
+  })
   
 });
 
