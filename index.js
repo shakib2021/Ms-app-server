@@ -4,11 +4,11 @@ const bodyParser=require('body-parser')
 require('dotenv').config()
 const ObjectI= require('mongodb').ObjectID
 const app = express()
-const port = 5000
+const port = process.env.PORT||5000
 app.use(cors())
 app.use(bodyParser.json())
 
-
+;
 
 const MongoClient = require('mongodb').MongoClient;
 const uri =` mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.b20nz.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
@@ -89,28 +89,7 @@ serviceCollection.find()
 
 
     
-  
-
-
-
-  
-
-
-
-
-
-
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
-
-
-
-
-
-
-
+app.listen(port=>port)
 
 
 
