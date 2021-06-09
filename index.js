@@ -8,7 +8,7 @@ const port =5000
 app.use(cors())
 app.use(bodyParser.json())
 
-;
+
 
 const MongoClient = require('mongodb').MongoClient;
 const uri =` mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.b20nz.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
@@ -43,22 +43,17 @@ client.connect(err => {
     })
    
   })
-  app.get('/showReview',(req,res)=>{
-   ReviewCollection.find()
-    .toArray((error,doc)=>{
-      res.send(doc)
-    })
-      })
+//   app.get('/showReview',(req,res)=>{
+//    ReviewCollection.find()
+//     .toArray((error,doc)=>{
+//       res.send(doc)
+//     })
+//       })
 
   app.delete('/deleteOrder/:id',(req,res)=>{
 
     let id=ObjectI(req.params.id)
     OrderCollection.findOneAndDelete({_id:id})
-   .then(result=>{
-     res.send(result==true)
-     console.log(result.ok)
-   })
- 
    })
   app.post("/addorder",(req, res) => {
     let add=req.body;
@@ -68,22 +63,20 @@ client.connect(err => {
       console.log(result)
     })
   })
-  app.get("/showOrder",(req,res)=>{
-      OrderCollection.find()
-      .toArray((error,doc)=>{
-        res.send(doc)
-      })
+//   app.get("/showOrder",(req,res)=>{
+//       OrderCollection.find()
+//       .toArray((error,doc)=>{
+//         res.send(doc)
+//       })
+//      })
 
 
-  })
-
-
-  app.get('/showservices',(req,res)=>{
-serviceCollection.find()
-.toArray((error,doc)=>{
-  res.send(doc)
-})
-  })
+//   app.get('/showservices',(req,res)=>{
+// serviceCollection.find()
+// .toArray((error,doc)=>{
+//   res.send(doc)
+// })
+//   })
   
 });
 
