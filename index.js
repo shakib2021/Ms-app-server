@@ -51,7 +51,7 @@ client.connect(err => {
       })
 app.delete("/deleteUserOrder/:id",(req,res)=>{
   let id=ObjectI(req.params.id)
-  OrderCollection.findOneAndDeleteOne({_id:id})
+  OrderCollection.findOneAndDelete({_id:id})
 })
   app.delete('/deleteOrder/:id',(req,res)=>{
 
