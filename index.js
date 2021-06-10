@@ -49,7 +49,7 @@ client.connect(err => {
       res.send(doc)
     })
       })
-app.delete("deleteUserOrder/:id",(req,res)=>{
+app.delete("/deleteUserOrder/:id",(req,res)=>{
   let id=ObjectI(req.params.id)
   OrderCollection.findOneAndDeleteOne({_id:id})
 })
