@@ -35,6 +35,12 @@ client.connect(err => {
     })
    
   })
+  app.get("/findAdmin",(req,res)=>{
+    AdminCollection.find().
+    toArray((error,doc)=>{
+      res.send(doc)
+    })
+  })
   app.post("/addreview",(req, res) => {
     let review=req.body;
     ReviewCollection.insertOne(review)
