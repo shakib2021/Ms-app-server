@@ -53,6 +53,15 @@ app.delete("/deleteUserOrder/:id",(req,res)=>{
   let id=ObjectI(req.params.id)
   OrderCollection.findOneAndDelete({_id:id})
 })
+app.patch("/update",(req,res)=>{
+let id= ObjectI(req.body.id);
+  OrderCollection.updateOne({_id:id},
+  {
+    $set:{status:req.body.status}
+  })
+
+
+})
   app.delete('/deleteOrder/:id',(req,res)=>{
 
     let id=ObjectI(req.params.id)
